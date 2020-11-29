@@ -11,6 +11,14 @@ export default {
     },
   } as Meta;
   
-  const Template: Story = (args) => <Blob />;
+  const Template: Story = (args) => <Blob {...args}/>;
   
-  export const BlobExample = Template.bind({});
+  export const HappyBlob = Template.bind({});
+  HappyBlob.args = {
+    expression: 'happy'
+  };
+
+  export const AwestruckBlob = Template.bind({});
+  AwestruckBlob.args = {
+    expression: 'awestruck'
+  };
