@@ -2,10 +2,12 @@ import React from 'react'
 import styled from 'styled-components'
 
 import paths from './paths'
-import {Excited, Awestruck} from './Expressions'
+import {Excited, Awestruck, Sad} from './Expressions'
+
+type TExpressions = "happy" | "sad" | "awestruck"
 
 interface IBlobProps {
-    expression: string
+    expression: TExpressions
 }
 
 const Wrapper = styled.div`
@@ -13,7 +15,11 @@ const Wrapper = styled.div`
     width: 300px;
 `
 const Blob: React.FC<IBlobProps> = ({expression}) => {
-    const blobFace = expression === 'happy' ? <Excited/> : <Awestruck/>
+    const blobFace = {
+        "happy" : <Excited/>,
+        "awestruck": <Awestruck/>,
+        "sad": <Sad/>
+    }
 
     return (
         <Wrapper>
@@ -24,7 +30,7 @@ const Blob: React.FC<IBlobProps> = ({expression}) => {
                 <path className="blob-light-highlight" d={paths.lightHighlight} fill="#fff" opacity=".2" transform="translate(-294.23 -178.65)"/>
                 <path className="blob-dark-highlight" d={paths.darkHighlight} fill="#fff" opacity=".2" transform="translate(-294.23 -178.65)"/>
                 {
-                    blobFace
+                    blobFace[expression]
                 }
             </svg>
         </Wrapper>

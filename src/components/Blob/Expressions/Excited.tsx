@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Excited = () => (
-    <g id="Layer_2" data-name="Layer 2">
+    <g id="excited-face" data-name="Layer 2">
         <g id="Layer_1-2" data-name="Layer 1">
             <circle className="cls-1" fill="#2b4570" stroke="#2b4570" stroke-miterlimit="10" cx="50.74" cy="111.47" r="5.94"/>
             <circle className="cls-1" fill="#2b4570" stroke="#2b4570" stroke-miterlimit="10" cx="154.05" cy="111.47" r="5.94"/>
