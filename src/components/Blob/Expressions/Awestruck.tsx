@@ -2,7 +2,7 @@ import React from 'react'
 
 const Awestruck = () => (
     <g id='awestruck-face'>
-        <path className="mouth" stroke-linecap="round" fill="none" stroke-width="6" stroke-miterlimit="10" stroke="#2b4570" d="M92.27 126.81h21.49"/>
+        <path className="mouth" stroke-linecap="round" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#2b4570" d="M92.27 126.81h21.49"/>
                 <circle className="eyes-outline" fill="#fff" stroke="#fff" stroke-linecap="round" cx="50.74" cy="111.47" r="20"/>
                 <circle className="eyes-left-pupil" stroke-width=".65px" stroke="#2b4570" stroke-miterlimit="10" fill="#2b4570" stroke-linecap="round" cx="50.74" cy="111.47" r="13.07"/>
                 <circle className="eyes-left-top" fill="#fff" cx="56.9" cy="102.97" r="6.91"/>

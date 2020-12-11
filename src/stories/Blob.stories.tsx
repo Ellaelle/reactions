@@ -27,3 +27,8 @@ export default {
   SadBlob.args = {
     expression: 'sad'
   };
+
+  export const AngryBlob = Template.bind({});
+  AngryBlob.args = {
+    expression: 'angry'
+  };
