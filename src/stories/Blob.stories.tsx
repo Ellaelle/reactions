@@ -32,3 +32,8 @@ export default {
   AngryBlob.args = {
     expression: 'angry'
   };
+
+  export const IndifferentBlob = Template.bind({});
+  IndifferentBlob.args = {
+    expression: 'indifferent'
+  };

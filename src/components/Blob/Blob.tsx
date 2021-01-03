@@ -2,9 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 
 import paths from './paths'
-import {Excited, Awestruck, Sad, Angry} from './Expressions'
+import {Excited, Awestruck, Sad, Angry, Indifferent} from './Expressions'
 
-type TExpressions = "happy" | "sad" | "awestruck"
+type TExpressions = "happy" | "sad" | "awestruck" | "indifferent"
 
 interface IBlobProps {
     expression: TExpressions
@@ -19,7 +19,8 @@ const Blob: React.FC<IBlobProps> = ({expression}) => {
         "happy" : <Excited/>,
         "awestruck": <Awestruck/>,
         "sad": <Sad/>,
-        "angry": <Angry/>
+        "angry": <Angry/>,
+        "indifferent": <Indifferent/>
     }
 
     return (
