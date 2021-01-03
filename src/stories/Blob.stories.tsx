@@ -13,27 +13,7 @@ export default {
   
   const Template: Story = (args) => <Blob {...args}/>;
   
-  export const HappyBlob = Template.bind({});
-  HappyBlob.args = {
+  export const BobDaBlob = Template.bind({});
+  BobDaBlob.args = {
     expression: 'happy'
-  };
-
-  export const AwestruckBlob = Template.bind({});
-  AwestruckBlob.args = {
-    expression: 'awestruck'
-  };
-
-  export const SadBlob = Template.bind({});
-  SadBlob.args = {
-    expression: 'sad'
-  };
-
-  export const AngryBlob = Template.bind({});
-  AngryBlob.args = {
-    expression: 'angry'
-  };
-
-  export const IndifferentBlob = Template.bind({});
-  IndifferentBlob.args = {
-    expression: 'indifferent'
   };
