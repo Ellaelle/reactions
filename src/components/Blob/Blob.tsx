@@ -10,7 +10,7 @@ const Wrapper = styled.div`
     position: relative;
     width: 300px;
 `
-const Blob: React.FC<IBlobProps> = ({expression, color = 'default'}) => {
+const Blob: React.FC<IBlobProps> = ({expression, color = 'blue'}) => {
     const blobFace = {
         "happy" : <Happy color={color}/>,
         "awestruck": <Awestruck color={color}/>,
