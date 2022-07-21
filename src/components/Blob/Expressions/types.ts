@@ -1,5 +1,7 @@
-import {TColors} from '../types'
+import { IAnimationProps } from "../types";
 
 export type IExpressionProps = {
-    color: TColors
-}
+  strokeColor: string;
+  isAnimated: boolean;
+  animationProps: IAnimationProps;
+};

@@ -3,7 +3,7 @@ import { animated } from "react-spring";
 import { eyesTransition, mouthTransition } from "../transitions";
 import { IExpressionProps } from "./types";
 
-const Angry: React.FC<IExpressionProps> = ({
+const Embarrassed: React.FC<IExpressionProps> = ({
   strokeColor,
   isAnimated,
   animationProps,
@@ -11,62 +11,56 @@ const Angry: React.FC<IExpressionProps> = ({
   const getEyes = () => (
     <g>
       <circle
-        fill={strokeColor}
-        stroke={strokeColor}
         strokeMiterlimit="10"
+        stroke={strokeColor}
+        fill={strokeColor}
         cx="50.74"
         cy="111.47"
         r="5.9"
       />
       <circle
-        fill={strokeColor}
-        stroke={strokeColor}
         strokeMiterlimit="10"
+        stroke={strokeColor}
+        fill={strokeColor}
         cx="154.05"
         cy="111.47"
         r="5.9"
       />
-      <line
-        fill="none"
-        strokeLinecap="round"
-        strokeWidth="4px"
-        stroke={strokeColor}
+      <ellipse
+        stroke="#ffb8d3"
+        fill="#ffb8d3"
         strokeMiterlimit="10"
-        x1="145"
-        y1="100"
-        x2="165"
-        y2="92"
+        cx="50.74"
+        cy="131.47"
+        rx="13.86"
+        ry="6.15"
       />
-      <line
-        fill="none"
-        strokeLinecap="round"
-        strokeWidth="4px"
-        stroke={strokeColor}
+      <ellipse
+        stroke="#ffb8d3"
+        fill="#ffb8d3"
         strokeMiterlimit="10"
-        x1="40"
-        y1="92"
-        x2="60"
-        y2="100"
+        cx="154.05"
+        cy="131.47"
+        rx="13.86"
+        ry="6.15"
       />
     </g>
   );
 
   const getMouth = () => (
-    <line
-      fill="none"
-      strokeLinecap="round"
+    <path
       strokeWidth="4px"
+      strokeLinejoin="round"
+      strokeLinecap="round"
+      fill="#fff"
       stroke={strokeColor}
-      strokeMiterlimit="10"
-      x1="88"
-      y1="129"
-      x2="119"
-      y2="129"
+      d="M53.22,16.25c0,.32-.06.64-.06,1,0,6.45,5.93,11.68,13.25,11.68s13.24-5.23,13.24-11.68c0-.33,0-.65-.05-1Z"
+      transform="translate(38,105)"
     />
   );
 
   return isAnimated ? (
-    <g id="angry-face" data-testid="angry">
+    <g id="embarrassed-face" data-testid="embarrassed">
       <animated.g
         id="eyes"
         style={{ transform: animationProps.xy?.interpolate(eyesTransition) }}
@@ -81,11 +75,11 @@ const Angry: React.FC<IExpressionProps> = ({
       </animated.g>
     </g>
   ) : (
-    <g id="angry-face" data-testid="angry-face-no-animation">
+    <g id="embarrassed-face" data-testid="embarrassed-face-no-animation">
       <g id="eyes">{getEyes()}</g>
       <g id="mouth">{getMouth()}</g>
     </g>
   );
 };
 
-export default Angry;
+export default Embarrassed;
