@@ -7,14 +7,34 @@ export type TExpressions =
   | "surprised"
   | "embarrassed"
   | "worried";
+
 export type TColor = "blue" | "brown" | "green" | "pink" | "yellow" | "red";
+
+export type TCharacter = {
+  leftEyeTransform: string;
+  rightEyeTransform: string;
+  eyesRadius: string;
+  mouthTransform: string;
+  mouthStrokeWidth: string;
+  eyebrowStroke: string;
+  leftEyebrowTransform: string;
+  rightEyebrowTransform: string;
+  angryMouthTransform: string;
+};
+
+export type IExpressionProps = {
+  strokeColor: string;
+  isAnimated: boolean;
+  animationProps: IAnimationProps;
+  character?: TCharacter;
+};
 
 export interface ICustomStyle {
   stroke: string;
   fill: string;
 }
 
-export interface IBlobProps {
+export interface IBodyProps {
   expression: TExpressions;
   color?: TColor;
   isAnimated: boolean;

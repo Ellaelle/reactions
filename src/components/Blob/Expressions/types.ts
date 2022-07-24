@@ -1,4 +1,4 @@
-import { IAnimationProps } from "../types";
+import { IAnimationProps } from "../../common/types";
 
 export type IExpressionProps = {
   strokeColor: string;

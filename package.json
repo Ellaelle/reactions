@@ -23,7 +23,8 @@
     "test": "jest",
     "test:coverage": "react-scripts test --coverage --watchAll=false",
     "test:report": "yarn test:coverage && open coverage/lcov-report/index.html",
-    "test:watch": "react-scripts test --watch"
+    "test:watch": "react-scripts test --watch",
+    "chromatic": "npx chromatic --project-token=26dd11b9df1d"
   },
   "eslintConfig": {
     "extends": [
@@ -66,6 +67,7 @@
     "@types/react-test-renderer": "^17.0.1",
     "@types/styled-components": "^5.1.9",
     "babel-jest": "^26.6.3",
+    "chromatic": "^6.7.0",
     "husky": "^4.3.6",
     "prettier": "^2.2.1",
     "prettier-plugin-organize-imports": "^1.1.1",
@@ -111,5 +113,7 @@
       "clover",
       "text-summary"
     ]
-  }
+  },
+  "readme": "ERROR: No README data found!",
+  "_id": "reactions@0.1.0"
 }

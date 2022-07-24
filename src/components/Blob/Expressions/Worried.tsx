@@ -1,6 +1,6 @@
 import React from "react";
 import { animated } from "react-spring";
-import { eyesTransition, mouthTransition } from "../transitions";
+import { eyesTransition, mouthTransition } from "../../common/transitions";
 import { IExpressionProps } from "./types";
 
 const Worried: React.FC<IExpressionProps> = ({

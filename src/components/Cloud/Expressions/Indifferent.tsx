@@ -1,9 +1,9 @@
 import React from "react";
 import { animated } from "react-spring";
 import { eyesTransition, mouthTransition } from "../../common/transitions";
-import { IExpressionProps } from "./types";
+import { IExpressionProps } from "../../common/types";
 
-const Happy: React.FC<IExpressionProps> = ({
+const Indifferent: React.FC<IExpressionProps> = ({
   strokeColor,
   isAnimated,
   animationProps,
@@ -16,7 +16,7 @@ const Happy: React.FC<IExpressionProps> = ({
         strokeMiterlimit="10"
         cx="50.74"
         cy="111.47"
-        r="5.94"
+        r="5.9"
       />
       <circle
         fill={strokeColor}
@@ -24,34 +24,27 @@ const Happy: React.FC<IExpressionProps> = ({
         strokeMiterlimit="10"
         cx="154.05"
         cy="111.47"
-        r="5.94"
+        r="5.9"
       />
     </g>
   );
 
   const getMouth = () => (
-    <g>
-      <path
-        fill={strokeColor}
-        stroke={strokeColor}
-        strokeWidth="1px"
-        strokeMiterlimit="10"
-        transform="translate(45,100)"
-        d="M58.4,38.65c7.85,0,14.5-6.7,16.76-15.95a5.59,5.59,0,0,0-5.41-6.93H47.05a5.59,5.59,0,0,0-5.41,6.93C43.9,32,50.55,38.65,58.4,38.65Z"
-      />
-      <path
-        stroke={strokeColor}
-        fill="#ffb8d3"
-        strokeWidth="1px"
-        strokeMiterlimit="10"
-        transform="translate(45,100)"
-        d="M58.4,23.42c-6.29,0-11.64,2.74-13.75,6.6,3.22,5.26,8.18,8.63,13.75,8.63S68.93,35.28,72.15,30C70,26.16,64.68,23.42,58.4,23.42Z"
-      />
-    </g>
+    <line
+      stroke={strokeColor}
+      strokeMiterlimit="10"
+      fill="none"
+      strokeLinecap="round"
+      strokeWidth="4px"
+      x1="88"
+      y1="129"
+      x2="119"
+      y2="129"
+    />
   );
 
   return isAnimated ? (
-    <g id="happy-face" data-testid="happy">
+    <g id="indifferent-face" data-testid="indifferent">
       <animated.g
         id="eyes"
         style={{ transform: animationProps.xy?.interpolate(eyesTransition) }}
@@ -66,11 +59,11 @@ const Happy: React.FC<IExpressionProps> = ({
       </animated.g>
     </g>
   ) : (
-    <g id="happy-face" data-testid="happy-face-no-animation">
+    <g id="indifferent-face" data-testid="indifferent-face-no-animation">
       <g id="eyes">{getEyes()}</g>
       <g id="mouth">{getMouth()}</g>
     </g>
   );
 };
 
-export default Happy;
+export default Indifferent;

@@ -1,7 +1,7 @@
 import React from "react";
 import { animated } from "react-spring";
 import { eyesTransition, mouthTransition } from "../../common/transitions";
-import { IExpressionProps } from "./types";
+import { IExpressionProps } from "../../common/types";
 
 const Awestruck: React.FC<IExpressionProps> = ({
   strokeColor,
