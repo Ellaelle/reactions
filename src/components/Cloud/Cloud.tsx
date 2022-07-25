@@ -18,11 +18,11 @@ import paths from "./paths";
 
 const Wrapper = styled.div`
   margin: 30px;
-  min-width: 220px;
+  min-width: 200px;
   min-height: 200px;
 `;
 
-const Blob: React.FC<IBodyProps> = ({
+const Cloud: React.FC<IBodyProps> = ({
   expression,
   color = "blue",
   isAnimated,
@@ -41,7 +41,7 @@ const Blob: React.FC<IBodyProps> = ({
         strokeColor={strokeColor}
         isAnimated={isAnimated}
         animationProps={animationProps}
-        character={character.blob}
+        character={character.cloud}
       />
     ),
     awestruck: (
@@ -49,7 +49,7 @@ const Blob: React.FC<IBodyProps> = ({
         strokeColor={strokeColor}
         isAnimated={isAnimated}
         animationProps={animationProps}
-        character={character.blob}
+        character={character.cloud}
       />
     ),
     sad: (
@@ -57,7 +57,7 @@ const Blob: React.FC<IBodyProps> = ({
         strokeColor={strokeColor}
         isAnimated={isAnimated}
         animationProps={animationProps}
-        character={character.blob}
+        character={character.cloud}
       />
     ),
     angry: (
@@ -65,7 +65,7 @@ const Blob: React.FC<IBodyProps> = ({
         strokeColor={strokeColor}
         isAnimated={isAnimated}
         animationProps={animationProps}
-        character={character.blob}
+        character={character.cloud}
       />
     ),
     indifferent: (
@@ -73,7 +73,7 @@ const Blob: React.FC<IBodyProps> = ({
         strokeColor={strokeColor}
         isAnimated={isAnimated}
         animationProps={animationProps}
-        character={character.blob}
+        character={character.cloud}
       />
     ),
     surprised: (
@@ -81,7 +81,7 @@ const Blob: React.FC<IBodyProps> = ({
         strokeColor={strokeColor}
         isAnimated={isAnimated}
         animationProps={animationProps}
-        character={character.blob}
+        character={character.cloud}
       />
     ),
     embarrassed: (
@@ -89,7 +89,7 @@ const Blob: React.FC<IBodyProps> = ({
         strokeColor={strokeColor}
         isAnimated={isAnimated}
         animationProps={animationProps}
-        character={character.blob}
+        character={character.cloud}
       />
     ),
     worried: (
@@ -97,48 +97,26 @@ const Blob: React.FC<IBodyProps> = ({
         strokeColor={strokeColor}
         isAnimated={isAnimated}
         animationProps={animationProps}
-        character={character.blob}
+        character={character.cloud}
       />
     ),
   };
 
   const getBody = () => (
     <g>
+      <path className="cloud-body" fill={fillColor} d={paths.body} />
       <path
-        className="blob-body"
-        d={paths.body}
-        strokeMiterlimit="10"
+        className="cloud-body-outline"
+        stroke-width="5px"
         stroke={strokeColor}
-        fill={fillColor}
-        strokeWidth="3.79"
+        d={paths.bodyOutline}
       />
       <path
-        className="blob-light-shadow"
+        className="light-shadow"
+        fill="#fff"
+        opacity=".3"
+        fill-rule="evenodd"
         d={paths.lightShadow}
-        fill={strokeColor}
-        opacity=".1"
-        transform="translate(-294.23 -178.65)"
-      />
-      <path
-        className="blob-dark-shadow"
-        d={paths.darkShadow}
-        fill={strokeColor}
-        opacity=".1"
-        transform="translate(-294.23 -178.65)"
-      />
-      <path
-        className="blob-light-highlight"
-        d={paths.lightHighlight}
-        fill="#fff"
-        opacity=".2"
-        transform="translate(-294.23 -178.65)"
-      />
-      <path
-        className="blob-dark-highlight"
-        d={paths.darkHighlight}
-        fill="#fff"
-        opacity=".2"
-        transform="translate(-294.23 -178.65)"
       />
       {blobFace[expression]}
     </g>
@@ -148,7 +126,7 @@ const Blob: React.FC<IBodyProps> = ({
     x - window.innerWidth / 2,
     y - window.innerHeight / 2,
   ];
-  const viewBox = "0 0 220 200";
+  const viewBox = "-2 -4 550 500";
 
   return isAnimated ? (
     <Wrapper
@@ -159,17 +137,18 @@ const Blob: React.FC<IBodyProps> = ({
         viewBox={viewBox}
         /* @ts-expect-error */
         style={{ transform: animationProps.xy.interpolate(bodyTransition) }}
+        width="250px"
       >
         {getBody()}
       </animated.svg>
     </Wrapper>
   ) : (
     <Wrapper data-testid="not-animated">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox={viewBox}>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox={viewBox} width="250px">
         {getBody()}
       </svg>
     </Wrapper>
   );
 };
 
-export default Blob;
+export default Cloud;

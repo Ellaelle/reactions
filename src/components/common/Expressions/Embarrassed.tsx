@@ -1,12 +1,13 @@
 import React from "react";
 import { animated } from "react-spring";
 import { eyesTransition, mouthTransition } from "../transitions";
-import { IExpressionProps } from "./types";
+import { IExpressionProps } from "../types";
 
-const Surprised: React.FC<IExpressionProps> = ({
+const Embarrassed: React.FC<IExpressionProps> = ({
   strokeColor,
   isAnimated,
   animationProps,
+  character,
 }) => {
   const getEyes = () => (
     <g>
@@ -16,7 +17,8 @@ const Surprised: React.FC<IExpressionProps> = ({
         fill={strokeColor}
         cx="50.74"
         cy="111.47"
-        r="5.9"
+        r={character?.eyes.radius}
+        transform={character?.eyes.leftTransform}
       />
       <circle
         strokeMiterlimit="10"
@@ -24,45 +26,49 @@ const Surprised: React.FC<IExpressionProps> = ({
         fill={strokeColor}
         cx="154.05"
         cy="111.47"
-        r="5.9"
+        r={character?.eyes.radius}
+        transform={character?.eyes.rightTransform}
       />
-      <path
-        fill="none"
-        strokeWidth="4px"
-        strokeLinecap="round"
+      <ellipse
+        stroke="#ffb8d3"
+        fill="#ffb8d3"
         strokeMiterlimit="10"
-        stroke={strokeColor}
-        d="M2,8.08A11.32,11.32,0,0,1,17.94,6.64"
-        transform="translate(40,80)"
+        cx="50.74"
+        cy="131.47"
+        rx="13.86"
+        ry="6.15"
+        transform={character?.cheeks.leftTransform}
       />
-      <path
-        fill="none"
-        strokeWidth="4px"
-        strokeLinecap="round"
+      <ellipse
+        stroke="#ffb8d3"
+        fill="#ffb8d3"
         strokeMiterlimit="10"
-        stroke={strokeColor}
-        d="M105.81,5.27a11.31,11.31,0,0,1,16,.09"
-        transform="translate(40,80)"
+        cx="154.05"
+        cy="131.47"
+        rx="13.86"
+        ry="6.15"
+        transform={character?.cheeks.rightTransform}
       />
     </g>
   );
 
   const getMouth = () => (
-    <ellipse
-      strokeWidth="4px"
+    <line
+      fill="none"
       strokeLinecap="round"
-      strokeLinejoin="round"
-      fill="#fff"
+      strokeWidth={character?.mouth.strokeWidth}
       stroke={strokeColor}
-      cx="105"
-      cy="130"
-      rx="8.28"
-      ry="10.2"
+      strokeMiterlimit="10"
+      transform={character?.mouth.flatTransform}
+      x1="88"
+      y1="129"
+      x2="119"
+      y2="129"
     />
   );
 
   return isAnimated ? (
-    <g id="surprised-face" data-testid="surprised">
+    <g id="embarrassed-face" data-testid="embarrassed">
       <animated.g
         id="eyes"
         style={{ transform: animationProps.xy?.interpolate(eyesTransition) }}
@@ -77,11 +83,11 @@ const Surprised: React.FC<IExpressionProps> = ({
       </animated.g>
     </g>
   ) : (
-    <g id="surprised-face" data-testid="surprised-face-no-animation">
+    <g id="embarrassed-face" data-testid="embarrassed-face-no-animation">
       <g id="eyes">{getEyes()}</g>
       <g id="mouth">{getMouth()}</g>
     </g>
   );
 };
 
-export default Surprised;
+export default Embarrassed;
