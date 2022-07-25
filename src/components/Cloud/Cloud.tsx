@@ -1,9 +1,6 @@
 import React from "react";
 import { animated, useSpring } from "react-spring";
 import styled from "styled-components";
-import { bodyTransition } from "../common/transitions";
-import { IBodyProps } from "../common/types";
-import { character, fill, stroke } from "../styles";
 import {
   Angry,
   Awestruck,
@@ -13,7 +10,10 @@ import {
   Sad,
   Surprised,
   Worried,
-} from "./Expressions";
+} from "../common/Expressions";
+import { bodyTransition } from "../common/transitions";
+import { IBodyProps } from "../common/types";
+import { character, fill, stroke } from "../styles";
 import paths from "./paths";
 
 const Wrapper = styled.div`

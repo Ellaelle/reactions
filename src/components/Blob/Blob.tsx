@@ -1,9 +1,6 @@
 import React from "react";
 import { animated, useSpring } from "react-spring";
 import styled from "styled-components";
-import { bodyTransition } from "../common/transitions";
-import { IBodyProps } from "../common/types";
-import { fill, stroke } from "../styles";
 import {
   Angry,
   Awestruck,
@@ -13,7 +10,10 @@ import {
   Sad,
   Surprised,
   Worried,
-} from "./Expressions";
+} from "../common/Expressions";
+import { bodyTransition } from "../common/transitions";
+import { IBodyProps } from "../common/types";
+import { character, fill, stroke } from "../styles";
 import paths from "./paths";
 
 const Wrapper = styled.div`
@@ -41,6 +41,7 @@ const Blob: React.FC<IBodyProps> = ({
         strokeColor={strokeColor}
         isAnimated={isAnimated}
         animationProps={animationProps}
+        character={character.blob}
       />
     ),
     awestruck: (
@@ -48,6 +49,7 @@ const Blob: React.FC<IBodyProps> = ({
         strokeColor={strokeColor}
         isAnimated={isAnimated}
         animationProps={animationProps}
+        character={character.blob}
       />
     ),
     sad: (
@@ -55,6 +57,7 @@ const Blob: React.FC<IBodyProps> = ({
         strokeColor={strokeColor}
         isAnimated={isAnimated}
         animationProps={animationProps}
+        character={character.blob}
       />
     ),
     angry: (
@@ -62,6 +65,7 @@ const Blob: React.FC<IBodyProps> = ({
         strokeColor={strokeColor}
         isAnimated={isAnimated}
         animationProps={animationProps}
+        character={character.blob}
       />
     ),
     indifferent: (
@@ -69,6 +73,7 @@ const Blob: React.FC<IBodyProps> = ({
         strokeColor={strokeColor}
         isAnimated={isAnimated}
         animationProps={animationProps}
+        character={character.blob}
       />
     ),
     surprised: (
@@ -76,6 +81,7 @@ const Blob: React.FC<IBodyProps> = ({
         strokeColor={strokeColor}
         isAnimated={isAnimated}
         animationProps={animationProps}
+        character={character.blob}
       />
     ),
     embarrassed: (
@@ -83,6 +89,7 @@ const Blob: React.FC<IBodyProps> = ({
         strokeColor={strokeColor}
         isAnimated={isAnimated}
         animationProps={animationProps}
+        character={character.blob}
       />
     ),
     worried: (
@@ -90,6 +97,7 @@ const Blob: React.FC<IBodyProps> = ({
         strokeColor={strokeColor}
         isAnimated={isAnimated}
         animationProps={animationProps}
+        character={character.blob}
       />
     ),
   };

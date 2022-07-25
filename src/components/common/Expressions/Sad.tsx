@@ -1,12 +1,13 @@
 import React from "react";
 import { animated } from "react-spring";
-import { eyesTransition, mouthTransition } from "../../common/transitions";
-import { IExpressionProps } from "./types";
+import { eyesTransition, mouthTransition } from "../transitions";
+import { IExpressionProps } from "../types";
 
-const Indifferent: React.FC<IExpressionProps> = ({
+const Sad: React.FC<IExpressionProps> = ({
   strokeColor,
   isAnimated,
   animationProps,
+  character,
 }) => {
   const getEyes = () => (
     <g>
@@ -16,7 +17,8 @@ const Indifferent: React.FC<IExpressionProps> = ({
         strokeMiterlimit="10"
         cx="50.74"
         cy="111.47"
-        r="5.9"
+        r={character?.eyes.radius}
+        transform={character?.eyes.leftTransform}
       />
       <circle
         fill={strokeColor}
@@ -24,27 +26,26 @@ const Indifferent: React.FC<IExpressionProps> = ({
         strokeMiterlimit="10"
         cx="154.05"
         cy="111.47"
-        r="5.9"
+        r={character?.eyes.radius}
+        transform={character?.eyes.rightTransform}
       />
     </g>
   );
 
   const getMouth = () => (
-    <line
+    <path
       stroke={strokeColor}
       strokeMiterlimit="10"
       fill="none"
       strokeLinecap="round"
-      strokeWidth="4px"
-      x1="88"
-      y1="129"
-      x2="119"
-      y2="129"
+      strokeWidth={character?.mouth.strokeWidth}
+      transform={character?.mouth.transform}
+      d="M35.19,26.48C45.24,6.4,71.8,6.39,79.84,27"
     />
   );
 
   return isAnimated ? (
-    <g id="indifferent-face" data-testid="indifferent">
+    <g id="sad-face" data-testid="sad">
       <animated.g
         id="eyes"
         style={{ transform: animationProps.xy?.interpolate(eyesTransition) }}
@@ -59,11 +60,11 @@ const Indifferent: React.FC<IExpressionProps> = ({
       </animated.g>
     </g>
   ) : (
-    <g id="indifferent-face" data-testid="indifferent-face-no-animation">
+    <g id="sad-face" data-testid="sad-face-no-animation">
       <g id="eyes">{getEyes()}</g>
       <g id="mouth">{getMouth()}</g>
     </g>
   );
 };
 
-export default Indifferent;
+export default Sad;

@@ -10,23 +10,23 @@ export type TExpressions =
 
 export type TColor = "blue" | "brown" | "green" | "pink" | "yellow" | "red";
 
-export type TCharacter = {
-  leftEyeTransform: string;
-  rightEyeTransform: string;
-  eyesRadius: string;
-  mouthTransform: string;
-  mouthStrokeWidth: string;
-  eyebrowStroke: string;
-  leftEyebrowTransform: string;
-  rightEyebrowTransform: string;
-  angryMouthTransform: string;
-};
+// export type TCharacter = {
+//   leftEyeTransform: string;
+//   rightEyeTransform: string;
+//   eyesRadius: string;
+//   mouthTransform: string;
+//   mouthStrokeWidth: string;
+//   eyebrowStroke: string;
+//   leftEyebrowTransform: string;
+//   rightEyebrowTransform: string;
+//   angryMouthTransform: string;
+// };
 
 export type IExpressionProps = {
   strokeColor: string;
   isAnimated: boolean;
   animationProps: IAnimationProps;
-  character?: TCharacter;
+  character?: any;
 };
 
 export interface ICustomStyle {

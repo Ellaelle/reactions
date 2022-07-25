@@ -1,12 +1,13 @@
 import React from "react";
 import { animated } from "react-spring";
-import { eyesTransition, mouthTransition } from "../../common/transitions";
-import { IExpressionProps } from "../../common/types";
+import { eyesTransition, mouthTransition } from "../transitions";
+import { IExpressionProps } from "../types";
 
 const Indifferent: React.FC<IExpressionProps> = ({
   strokeColor,
   isAnimated,
   animationProps,
+  character,
 }) => {
   const getEyes = () => (
     <g>
@@ -16,7 +17,8 @@ const Indifferent: React.FC<IExpressionProps> = ({
         strokeMiterlimit="10"
         cx="50.74"
         cy="111.47"
-        r="5.9"
+        r={character?.eyes.radius}
+        transform={character?.eyes.leftTransform}
       />
       <circle
         fill={strokeColor}
@@ -24,7 +26,8 @@ const Indifferent: React.FC<IExpressionProps> = ({
         strokeMiterlimit="10"
         cx="154.05"
         cy="111.47"
-        r="5.9"
+        r={character?.eyes.radius}
+        transform={character?.eyes.rightTransform}
       />
     </g>
   );
@@ -35,7 +38,8 @@ const Indifferent: React.FC<IExpressionProps> = ({
       strokeMiterlimit="10"
       fill="none"
       strokeLinecap="round"
-      strokeWidth="4px"
+      strokeWidth={character?.mouth.strokeWidth}
+      transform={character?.mouth.flatTransform}
       x1="88"
       y1="129"
       x2="119"

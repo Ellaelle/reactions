@@ -1,12 +1,13 @@
 import React from "react";
 import { animated } from "react-spring";
-import { eyesTransition, mouthTransition } from "../../common/transitions";
-import { IExpressionProps } from "../../common/types";
+import { eyesTransition, mouthTransition } from "../transitions";
+import { IExpressionProps } from "../types";
 
 const Awestruck: React.FC<IExpressionProps> = ({
   strokeColor,
   isAnimated,
   animationProps,
+  character,
 }) => {
   const getEyes = () => (
     <g>
@@ -16,7 +17,8 @@ const Awestruck: React.FC<IExpressionProps> = ({
         strokeLinecap="round"
         cx="50.74"
         cy="111.47"
-        r="20"
+        r={character?.eyes.largeRadius}
+        transform={character?.eyes.leftTransform}
       />
       <circle
         strokeWidth=".65px"
@@ -26,18 +28,31 @@ const Awestruck: React.FC<IExpressionProps> = ({
         strokeLinecap="round"
         cx="50.74"
         cy="111.47"
-        r="13.07"
+        r={character?.eyes.radius}
+        transform={character?.eyes.leftTransform}
       />
-      <circle fill="#fff" cx="56.9" cy="102.97" r="6.91" />
-      <circle fill="#fff" cx="48.12" cy="115.49" r="4.02" />
+      <circle
+        fill="#fff"
+        cx="53"
+        cy="105"
+        r={character?.eyes.highlightTop}
+        transform={character?.eyes.leftTransform}
+      />
+      <circle
+        fill="#fff"
+        cx="50"
+        cy="115.49"
+        r={character?.eyes.highlightBottom}
+        transform={character?.eyes.leftTransform}
+      />
       <ellipse
         opacity=".34"
         fill="#fff"
         cx="339.21"
         cy="280.76"
         rx="7.94"
-        ry="3.91"
-        transform="rotate(-30 -141.268 740.467)"
+        ry="4"
+        transform={character?.eyes.largeLeftTransform}
       />
       <circle
         fill="#fff"
@@ -45,7 +60,8 @@ const Awestruck: React.FC<IExpressionProps> = ({
         strokeLinecap="round"
         cx="154.05"
         cy="111.47"
-        r="20"
+        r={character?.eyes.largeRadius}
+        transform={character?.eyes.rightTransform}
       />
       <circle
         strokeWidth=".65px"
@@ -55,10 +71,23 @@ const Awestruck: React.FC<IExpressionProps> = ({
         fill={strokeColor}
         cx="154.05"
         cy="111.47"
-        r="13.07"
+        r={character?.eyes.radius}
+        transform={character?.eyes.rightTransform}
       />
-      <circle fill="#fff" cx="160.21" cy="102.97" r="6.91" />
-      <circle fill="#fff" cx="151.42" cy="115.49" r="4.02" />
+      <circle
+        fill="#fff"
+        cx="158"
+        cy="105"
+        r={character?.eyes.highlightTop}
+        transform={character?.eyes.rightTransform}
+      />
+      <circle
+        fill="#fff"
+        cx="155"
+        cy="115.49"
+        r={character?.eyes.highlightBottom}
+        transform={character?.eyes.rightTransform}
+      />
 
       <ellipse
         opacity=".34"
@@ -67,19 +96,23 @@ const Awestruck: React.FC<IExpressionProps> = ({
         cy="280.76"
         rx="7.94"
         ry="3.91"
-        transform="rotate(-30 -38.108 740.469)"
+        transform={character?.eyes.largeRightTransform}
       />
     </g>
   );
 
   const getMouth = () => (
-    <path
+    <ellipse
+      strokeWidth={character?.mouth.strokeWidth}
       strokeLinecap="round"
-      fill="none"
-      strokeWidth="4"
-      strokeMiterlimit="10"
+      strokeLinejoin="round"
+      fill="#fff"
       stroke={strokeColor}
-      d="M92.27 126.81h21.49"
+      cx="105"
+      cy="130"
+      rx="8.28"
+      ry="10.2"
+      transform={character?.mouth.flatTransform}
     />
   );
 
