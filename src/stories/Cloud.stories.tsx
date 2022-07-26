@@ -1,12 +1,12 @@
 import { Meta, Story } from "@storybook/react/types-6-0";
 import React from "react";
 import styled from "styled-components";
-import { Blob } from "../components/Blob";
+import { Cloud } from "../components/Cloud";
 import { IBodyProps } from "../components/common/types";
 
 export default {
-  title: "Characters/Blob",
-  component: Blob,
+  title: "Characters/Cloud",
+  component: Cloud,
   argTypes: {
     color: {
       control: {
@@ -41,19 +41,19 @@ const Wrapper = styled.div`
 
 const Template: Story = (args) => (
   <Wrapper>
-    <Blob {...(args as IBodyProps)} />
+    <Cloud {...(args as IBodyProps)} />
   </Wrapper>
 );
 
-export const Bob = Template.bind({});
-Bob.args = {
+export const DefaultCloud = Template.bind({});
+DefaultCloud.args = {
   expression: "happy",
   isAnimated: false,
   color: "blue",
 };
 
-export const CustomBob = Template.bind({});
-CustomBob.args = {
+export const CustomCloud = Template.bind({});
+CustomCloud.args = {
   expression: "happy",
   isAnimated: false,
   customStyle: {
